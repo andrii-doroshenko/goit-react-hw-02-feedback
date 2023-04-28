@@ -1,4 +1,3 @@
-import shortid from 'shortid';
 import PropTypes from 'prop-types';
 import styles from './Statistics.module.css';
 
@@ -12,9 +11,9 @@ export const Statistics = ({
     <div className={styles.container}>
       <ul className={styles.statistics}>
         {options.map(option => {
-          const id = shortid.generate();
+          // const id = shortid.generate();
           return (
-            <li className={styles.statistics__item} key={id} id={id}>
+            <li className={styles.statistics__item} key={option} id={option}>
               <p className={styles.statistics__value}>
                 {option.charAt(0).toUpperCase() + option.slice(1)}:{' '}
                 {state[option]}
@@ -22,20 +21,12 @@ export const Statistics = ({
             </li>
           );
         })}
-        <li
-          className={styles.statistics__item}
-          key={shortid.generate()}
-          id="total"
-        >
+        <li className={styles.statistics__item} id="total">
           <p className={styles.statistics__value}>
             Total: {countTotalFeedback()}
           </p>
         </li>
-        <li
-          className={styles.statistics__item}
-          key={shortid.generate()}
-          id="percentage"
-        >
+        <li className={styles.statistics__item} id="percentage">
           <p className={styles.statistics__value}>
             Positive feedback: {percentage()}%
           </p>

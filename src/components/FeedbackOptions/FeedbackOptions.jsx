@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import shortid from 'shortid';
 import styles from './FeedbackOptions.module.css';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
@@ -8,9 +7,12 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
     <div className={styles.container}>
       <ul className={styles.feedback}>
         {options.map(option => {
-          const id = shortid.generate();
           return (
-            <li className={styles.feedback__item} key={id} id={id}>
+            <li
+              className={styles.feedback__item}
+              key={`${option}Btn`}
+              id={`${option}Btn`}
+            >
               <button
                 className={styles.feedback__btn}
                 name={option}
